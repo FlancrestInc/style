@@ -1,0 +1,516 @@
+<!--
+README: Homelab Brand Style Showroom
+This page uses a token-based theme system powered by CSS custom properties.
+Theme values are defined centrally in script.js and applied to :root at runtime.
+Shared components in styles.css consume only those tokens so the design language
+can later be extracted into a reusable stylesheet for multiple homelab apps.
+To add a new theme, create a new entry in THEME_DEFINITIONS and provide the
+full token set plus a short description. The same HTML will then render in that
+theme automatically.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontier Ops Console</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="background-orb orb-a"></div>
+    <div class="background-orb orb-b"></div>
+
+    <header class="hero panel">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Maintained frontier stack for self-hosted systems
+          </div>
+          <h1>Frontier Ops Console</h1>
+          <p class="hero-subtitle">
+            A branded proof-of-concept for applying one rugged, future-retro control language across media, automation, development, and infrastructure tools in the homelab.
+          </p>
+        <div class="hero-meta">
+          <div>
+            <span class="meta-label">Current recommendation</span>
+            <strong id="recommendedThemeLabel">Frontier Ops Console</strong>
+          </div>
+          <div>
+            <span class="meta-label">Operating character</span>
+            <strong>Industrial, lived-in, reliable, and personal</strong>
+          </div>
+        </div>
+      </div>
+
+      <aside class="control-panel panel-elevated">
+        <div class="panel-heading">
+          <div>
+            <p class="panel-kicker">Console controls</p>
+            <h2>Theme bay</h2>
+          </div>
+          <button class="favorite-toggle ghost-button" id="favoriteThemeBtn" type="button" aria-pressed="false">
+            Pin current skin
+          </button>
+        </div>
+
+        <div class="control-stack">
+          <label class="field">
+            <span class="field-label">Active console skin</span>
+            <div class="theme-switcher">
+              <button class="icon-button" id="prevThemeBtn" type="button" aria-label="Previous theme">&lt;</button>
+              <select id="themeSelect" aria-label="Select theme"></select>
+              <button class="icon-button" id="nextThemeBtn" type="button" aria-label="Next theme">&gt;</button>
+            </div>
+          </label>
+
+          <div class="field">
+            <span class="field-label">Deployment notes</span>
+            <p id="themeDescription" class="theme-description"></p>
+          </div>
+
+          <div class="toggle-row">
+            <label class="switch-wrap">
+              <span>Expose live tokens</span>
+              <button id="tokenToggle" class="switch" type="button" role="switch" aria-checked="false">
+                <span class="switch-handle"></span>
+              </button>
+            </label>
+
+            <label class="switch-wrap">
+              <span>Expanded spacing</span>
+              <button id="spacingToggle" class="switch" type="button" role="switch" aria-checked="true">
+                <span class="switch-handle"></span>
+              </button>
+            </label>
+          </div>
+        </div>
+      </aside>
+    </header>
+
+    <main class="content-grid">
+      <section class="stats-row">
+        <article class="stat-card panel">
+          <div class="stat-icon">O</div>
+          <div>
+            <p class="panel-kicker">Systems online</p>
+            <h3>28 / 31</h3>
+            <p class="stat-foot">Two systems in service bay, one sync relay running soft</p>
+          </div>
+        </article>
+        <article class="stat-card panel">
+          <div class="stat-icon warning">!</div>
+          <div>
+            <p class="panel-kicker">Watchlist</p>
+            <h3>3</h3>
+            <p class="stat-foot">UPS battery drift, transcode heat, and one slow backup window</p>
+          </div>
+        </article>
+        <article class="stat-card panel">
+          <div class="stat-icon accent">%</div>
+          <div>
+            <p class="panel-kicker">Core load</p>
+            <h3>34%</h3>
+            <p class="stat-foot">Cluster average holding steady over the last 15 minutes</p>
+          </div>
+        </article>
+        <article class="stat-card panel">
+          <div class="stat-icon success">[]</div>
+          <div>
+            <p class="panel-kicker">Cargo hold</p>
+            <h3>74 TB</h3>
+            <p class="stat-foot">74 TB of 96 TB across media, backups, archives, and VM images</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel section-card">
+        <div class="section-heading">
+          <div>
+            <p class="panel-kicker">Field cards</p>
+            <h2>Homelab services in service</h2>
+          </div>
+          <p class="section-note">Each card shows how the same service data reads inside the active console skin.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card panel-elevated" data-service="grafana">
+            <div class="service-card-top">
+              <div class="service-icon">G</div>
+              <span class="badge badge-success">Healthy</span>
+            </div>
+            <h3>Grafana</h3>
+            <p>Telemetry boards for node metrics, container health, and alert routing.</p>
+            <div class="service-meta">
+              <span class="technical-label">alerts: 1 firing</span>
+              <span class="technical-label">latency: 89 ms</span>
+            </div>
+            <div class="card-actions">
+              <button class="button button-primary" type="button">Open board</button>
+              <button class="button button-ghost" type="button">Inspect feed</button>
+            </div>
+          </article>
+
+          <article class="service-card panel-elevated" data-service="homeassistant">
+            <div class="service-card-top">
+              <div class="service-icon">H</div>
+              <span class="badge badge-info">Automating</span>
+            </div>
+            <h3>Home Assistant</h3>
+            <p>Lighting, climate, presence, and household routines running from one relay.</p>
+            <div class="service-meta">
+              <span class="technical-label">flows: 42 active</span>
+              <span class="technical-label">entities: 316</span>
+            </div>
+            <div class="card-actions">
+              <button class="button button-primary" type="button">Enter relay</button>
+              <button class="button button-secondary" type="button">Scenes</button>
+            </div>
+          </article>
+
+          <article class="service-card panel-elevated" data-service="jellyfin">
+            <div class="service-card-top">
+              <div class="service-icon">J</div>
+              <span class="badge badge-warning">High traffic</span>
+            </div>
+            <h3>Jellyfin</h3>
+            <p>Media streaming for the house with intro-skip jobs and nightly library scans.</p>
+            <div class="service-meta">
+              <span class="technical-label">streams: 6</span>
+              <span class="technical-label">queue: 2 transcodes</span>
+            </div>
+            <div class="card-actions">
+              <button class="button button-primary" type="button">Open bay</button>
+              <button class="button button-ghost" type="button">Libraries</button>
+            </div>
+          </article>
+
+          <article class="service-card panel-elevated" data-service="n8n">
+            <div class="service-card-top">
+              <div class="service-icon">N</div>
+              <span class="badge badge-info">Queued</span>
+            </div>
+            <h3>n8n</h3>
+            <p>Webhook automations for alerts, receipts, docs, and routine homelab work.</p>
+            <div class="service-meta">
+              <span class="technical-label">jobs: 14 queued</span>
+              <span class="technical-label">failures: 0</span>
+            </div>
+            <div class="card-actions">
+              <button class="button button-primary" type="button">Workflows</button>
+              <button class="button button-ghost" type="button">Job ledger</button>
+            </div>
+          </article>
+
+          <article class="service-card panel-elevated" data-service="portainer">
+            <div class="service-card-top">
+              <div class="service-icon">P</div>
+              <span class="badge badge-success">Stable</span>
+            </div>
+            <h3>Portainer</h3>
+            <p>Container deployment, image updates, and stack handling across the cluster.</p>
+            <div class="service-meta">
+              <span class="technical-label">stacks: 18</span>
+              <span class="technical-label">updates: 3 pending</span>
+            </div>
+            <div class="card-actions">
+              <button class="button button-primary" type="button">Manage stacks</button>
+              <button class="button button-secondary" type="button">Update queue</button>
+            </div>
+          </article>
+
+          <article class="service-card panel-elevated" data-service="vscode">
+            <div class="service-card-top">
+              <div class="service-icon">V</div>
+              <span class="badge badge-danger">Review needed</span>
+            </div>
+            <h3>VS Code Server</h3>
+            <p>Remote editing for infra repos, compose stacks, and automation repair work.</p>
+            <div class="service-meta">
+              <span class="technical-label">branches: 7 dirty</span>
+              <span class="technical-label">PRs: 2 open</span>
+            </div>
+            <div class="card-actions">
+              <button class="button button-primary" type="button">Resume session</button>
+              <button class="button button-danger" type="button">Keep watch</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel section-card">
+        <div class="section-heading">
+          <div>
+            <p class="panel-kicker">System primitives</p>
+            <h2>Reusable console components</h2>
+          </div>
+          <p class="section-note">Buttons, inputs, navigation, states, and housings all inherit from shared console tokens.</p>
+        </div>
+
+        <div class="showcase-grid">
+          <article class="showcase-block">
+            <h3>Buttons and badges</h3>
+            <div class="button-row">
+              <button class="button button-primary" type="button">Deploy stack</button>
+              <button class="button button-secondary" type="button">Run backup</button>
+              <button class="button button-ghost" type="button">Check logs</button>
+              <button class="button button-danger" type="button">Cold stop node</button>
+            </div>
+            <div class="badge-row">
+              <span class="badge badge-info">Maintenance</span>
+              <span class="badge badge-success">Healthy</span>
+              <span class="badge badge-warning">Attention</span>
+              <span class="badge badge-danger">Offline</span>
+            </div>
+          </article>
+
+          <article class="showcase-block">
+            <h3>Inputs and switch</h3>
+            <div class="form-grid">
+              <label class="field">
+                <span class="field-label">Scan services</span>
+                <input class="input" type="search" placeholder="Search by app, tag, or host">
+              </label>
+              <label class="field">
+                <span class="field-label">Primary landing view</span>
+                <select class="input">
+                  <option>Dashy overview</option>
+                  <option>Grafana operations</option>
+                  <option>Home Assistant</option>
+                </select>
+              </label>
+              <label class="field">
+                <span class="field-label">Cluster callsign</span>
+                <input class="input" type="text" value="flanparty-lab-core">
+              </label>
+            </div>
+            <div class="inline-setting">
+              <span class="field-label">Permit external Tailscale ingress</span>
+              <button class="switch is-on" type="button" aria-checked="true" role="switch">
+                <span class="switch-handle"></span>
+              </button>
+            </div>
+          </article>
+
+          <article class="showcase-block">
+            <h3>Tabs and alerts</h3>
+            <div class="tabs" role="tablist" aria-label="Sample tabs">
+              <button class="tab is-active" type="button">Overview</button>
+              <button class="tab" type="button">Automations</button>
+              <button class="tab" type="button">Media</button>
+              <button class="tab" type="button">Infrastructure</button>
+            </div>
+            <div class="alert-stack">
+              <div class="alert alert-info">Proxy rotated certificates cleanly at 06:12.</div>
+              <div class="alert alert-success">Backblaze sync completed clean with zero file drift.</div>
+              <div class="alert alert-warning">RAID scrub is running under baseline. Keep an eye on this one.</div>
+              <div class="alert alert-danger">One camera stream has been dark for 19 minutes.</div>
+            </div>
+          </article>
+
+          <article class="showcase-block">
+            <h3>Progress and empty state</h3>
+            <div class="progress-group">
+              <div class="progress-label">
+                <span>Nightly backup window</span>
+                <strong>68%</strong>
+              </div>
+              <div class="progress-bar"><span style="width: 68%;"></span></div>
+            </div>
+            <div class="progress-group">
+              <div class="progress-label">
+                <span>GPU transcode queue</span>
+                <strong>42%</strong>
+              </div>
+              <div class="progress-bar accent"><span style="width: 42%;"></span></div>
+            </div>
+            <div class="empty-state panel-elevated">
+              <div class="empty-icon">+</div>
+              <h4>Nothing in this sector yet</h4>
+              <p>All alert annotations are clear for the current watch.</p>
+              <button class="button button-secondary" type="button">Log a note</button>
+            </div>
+          </article>
+
+          <article class="showcase-block wide">
+            <h3>Navigation previews</h3>
+            <div class="nav-preview-grid">
+              <div class="sidebar-preview panel-elevated">
+                <p class="panel-kicker">Sidebar rail</p>
+                <ul>
+                  <li class="is-selected">Overview</li>
+                  <li>Dashboards</li>
+                  <li>Media</li>
+                  <li>Automation</li>
+                  <li>Development</li>
+                  <li>Infrastructure</li>
+                </ul>
+              </div>
+              <div class="topnav-preview panel-elevated">
+                <div class="topnav-row">
+                  <strong>Frontier Ops</strong>
+                  <nav>
+                    <a href="#">Status</a>
+                    <a href="#">Services</a>
+                    <a href="#">Backups</a>
+                    <a href="#">Ledger</a>
+                  </nav>
+                  <span class="badge badge-success">Uplink stable</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="showcase-block wide">
+            <h3>Table and terminal</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Service</th>
+                    <th>Host</th>
+                    <th>Status</th>
+                    <th>Last deploy</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Traefik</td>
+                    <td>edge-01</td>
+                    <td><span class="status-dot success"></span>Healthy</td>
+                    <td>12 min ago</td>
+                  </tr>
+                  <tr>
+                    <td>Immich</td>
+                    <td>media-02</td>
+                    <td><span class="status-dot warning"></span>Reindexing</td>
+                    <td>1 hr ago</td>
+                  </tr>
+                  <tr>
+                    <td>Gitea</td>
+                    <td>dev-01</td>
+                    <td><span class="status-dot success"></span>Healthy</td>
+                    <td>Yesterday</td>
+                  </tr>
+                  <tr>
+                    <td>Authentik</td>
+                    <td>auth-01</td>
+                    <td><span class="status-dot danger"></span>Needs review</td>
+                    <td>3 days ago</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <pre class="code-block"><code>$ docker compose pull
+[backup] digest updated for restic-cron:latest
+[proxy] traefik is up to date
+[media] jellyfin recreated in 4.19s
+healthcheck: all monitored services responding</code></pre>
+          </article>
+
+          <article class="showcase-block">
+            <h3>Modal preview</h3>
+            <div class="modal-preview panel-elevated">
+              <div class="modal-header">
+                <div>
+                  <p class="panel-kicker">Command confirmation</p>
+                  <h4>Restart reverse proxy?</h4>
+                </div>
+                <button class="icon-button" type="button" aria-label="Close modal">X</button>
+              </div>
+              <p>
+                Restarting Traefik will briefly interrupt dashboard access while routes refresh and certificates reload.
+              </p>
+              <div class="card-actions">
+                <button class="button button-ghost" type="button">Cancel</button>
+                <button class="button button-primary" type="button">Cycle relay</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel section-card">
+        <div class="section-heading">
+          <div>
+            <p class="panel-kicker">Typography</p>
+            <h2>Hierarchy and signal clarity</h2>
+          </div>
+        </div>
+        <div class="type-showcase">
+          <div>
+            <h1>Heading One for dashboard identity</h1>
+            <h2>Heading Two for major sections</h2>
+            <h3>Heading Three for component groups</h3>
+            <p>
+              A unified control language makes internal tools feel related, lowers cognitive friction, and helps the homelab feel like one maintained console instead of a pile of unrelated screens.
+            </p>
+            <p class="muted">
+              Muted copy is for telemetry detail, maintenance notes, timestamps, and lower-priority operational guidance.
+            </p>
+            <a href="#">Open service field notes</a>
+          </div>
+          <div class="type-meta panel-elevated">
+            <p class="technical-label">host=orchestrator-01 env=lab-core zone=basement-rack</p>
+            <p class="technical-label">deploy_target=compose-cluster release_channel=stable</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel section-card split-section">
+        <div>
+          <div class="section-heading">
+            <div>
+              <p class="panel-kicker">Theme comparison</p>
+              <h2>Console skins still in rotation</h2>
+            </div>
+          </div>
+          <div class="notes-grid">
+            <article class="note-card panel-elevated">
+              <h3>Frontier Ops Console</h3>
+              <p>The mainline system skin. Industrial, grounded, and distinctive without sacrificing scan speed or usability.</p>
+            </article>
+            <article class="note-card panel-elevated">
+              <h3>Light Modern Ops</h3>
+              <p>The daytime companion skin. It keeps the same architecture and restraint while trading mood for brighter readability.</p>
+            </article>
+            <article class="note-card panel-elevated">
+              <h3>Retro Terminal</h3>
+              <p>The alternate specialty skin. Heavier terminal energy for moments when you want more signal-room personality.</p>
+            </article>
+          </div>
+        </div>
+
+        <article class="why-panel panel-elevated">
+          <p class="panel-kicker">Why this matters</p>
+          <h3>One console language keeps the whole homelab easier to run</h3>
+          <p>
+            Shared spacing, color semantics, typography, and interaction rules make each service feel like part of one environment. That consistency improves trust, reduces context switching, and makes custom internal tools easier to build over time.
+          </p>
+          <ul class="why-list">
+            <li>Consistent alert colors reduce misreads during incidents.</li>
+            <li>Shared panel, table, and form styles speed up internal app design.</li>
+            <li>Stable tokens make future theming and service-specific adaptations easier.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="panel section-card token-panel hidden" id="tokenPanel">
+        <div class="section-heading">
+          <div>
+            <p class="panel-kicker">Theme tokens</p>
+            <h2>Current console variable set</h2>
+          </div>
+          <p class="section-note">These are the live CSS custom properties driving the current console skin.</p>
+        </div>
+        <div class="token-grid" id="tokenGrid"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
