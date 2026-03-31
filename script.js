@@ -12,23 +12,23 @@ const THEME_DEFINITIONS = {
       "Future-retro command surfaces with warm industrial undertones, engineered housings, and subtle service-era wear.",
     recommendation: "Mainline console skin for the homelab. Distinctive, grounded, and built to stay readable under load.",
     tokens: {
-      bg: "#0f1419",
-      surface: "#1a2129",
-      "surface-elevated": "#222b35",
-      primary: "#4da3ff",
-      secondary: "#2dd4bf",
+      bg: "#111821",
+      surface: "#24313d",
+      "surface-elevated": "#314252",
+      primary: "#67b7ff",
+      secondary: "#5fd5e6",
       "accent-warm": "#d4a373",
       success: "#4ade80",
-      warning: "#f59e0b",
-      danger: "#ef4444",
-      text: "#e6edf3",
-      "text-muted": "#9aa6b2",
-      border: "rgba(148, 163, 184, 0.18)",
-      "input-bg": "rgba(12, 18, 24, 0.82)",
-      "focus-ring": "rgba(77, 163, 255, 0.42)",
-      "shadow-sm": "0 10px 18px rgba(6, 9, 13, 0.22)",
-      "shadow-md": "0 18px 28px rgba(6, 9, 13, 0.28)",
-      "shadow-lg": "0 28px 44px rgba(6, 9, 13, 0.34)",
+      warning: "#ffb027",
+      danger: "#ff5a5a",
+      text: "#edf5fb",
+      "text-muted": "#bfd0de",
+      border: "rgba(170, 193, 214, 0.28)",
+      "input-bg": "rgba(18, 27, 35, 0.9)",
+      "focus-ring": "rgba(103, 183, 255, 0.5)",
+      "shadow-sm": "0 10px 18px rgba(5, 9, 12, 0.2)",
+      "shadow-md": "0 18px 28px rgba(5, 9, 12, 0.25)",
+      "shadow-lg": "0 28px 44px rgba(5, 9, 12, 0.3)",
       "radius-sm": "8px",
       "radius-md": "12px",
       "radius-lg": "16px",
@@ -37,9 +37,9 @@ const THEME_DEFINITIONS = {
       "font-heading": '"Space Grotesk", "Segoe UI", sans-serif',
       "font-mono": '"IBM Plex Mono", "JetBrains Mono", monospace',
       "page-gradient":
-        "radial-gradient(circle at top left, rgba(77, 163, 255, 0.12), transparent 30%), radial-gradient(circle at 84% 8%, rgba(212, 163, 115, 0.08), transparent 24%), linear-gradient(180deg, rgba(255, 255, 255, 0.01), transparent 22%)",
+        "radial-gradient(circle at top left, rgba(103, 183, 255, 0.16), transparent 32%), radial-gradient(circle at 84% 8%, rgba(95, 213, 230, 0.1), transparent 26%), linear-gradient(180deg, rgba(255, 255, 255, 0.014), transparent 24%)",
       "hero-glow":
-        "linear-gradient(135deg, rgba(77, 163, 255, 0.09), rgba(212, 163, 115, 0.05))",
+        "linear-gradient(135deg, rgba(103, 183, 255, 0.12), rgba(95, 213, 230, 0.06))",
       "button-primary-text": "#f4f8fb",
       "button-secondary-text": "#e6edf3",
       "button-ghost-text": "#e6edf3",
@@ -49,70 +49,28 @@ const THEME_DEFINITIONS = {
       "scanline-opacity": "0.022"
     }
   },
-  "retro-terminal": {
-    label: "Retro Terminal",
-    description:
-      "A readable terminal-inspired system with phosphor green, sharper panels, and restrained CRT texture for real hacker-lab personality.",
-    recommendation: "Best for personality and hacker vibes when you want strong identity.",
-    tokens: {
-      bg: "#07110b",
-      surface: "#0d1811",
-      "surface-elevated": "#122118",
-      primary: "#33ff99",
-      secondary: "#ffd166",
-      success: "#75ff7a",
-      warning: "#ffbf69",
-      danger: "#ff6b6b",
-      text: "#d9ffe8",
-      "text-muted": "#8dc9a6",
-      border: "rgba(70, 140, 97, 0.45)",
-      "input-bg": "rgba(7, 17, 11, 0.88)",
-      "focus-ring": "rgba(51, 255, 153, 0.38)",
-      "shadow-sm": "0 0 0 rgba(0, 0, 0, 0)",
-      "shadow-md": "0 0 0 rgba(0, 0, 0, 0)",
-      "shadow-lg": "0 0 0 rgba(0, 0, 0, 0)",
-      "radius-sm": "4px",
-      "radius-md": "6px",
-      "radius-lg": "10px",
-      "radius-xl": "12px",
-      "font-body": '"Space Grotesk", "Segoe UI", sans-serif',
-      "font-heading": '"IBM Plex Mono", "Consolas", monospace',
-      "font-mono": '"IBM Plex Mono", "Consolas", monospace',
-      "page-gradient":
-        "radial-gradient(circle at top left, rgba(51, 255, 153, 0.08), transparent 25%), radial-gradient(circle at 80% 10%, rgba(255, 209, 102, 0.08), transparent 18%)",
-      "hero-glow":
-        "linear-gradient(135deg, rgba(51, 255, 153, 0.08), rgba(255, 209, 102, 0.03))",
-      "button-primary-text": "#021008",
-      "button-secondary-text": "#d9ffe8",
-      "button-ghost-text": "#d9ffe8",
-      "button-danger-text": "#fff1f1",
-      "link-color": "#7bffbc",
-      "service-stripe-opacity": "1",
-      "scanline-opacity": "0.045"
-    }
-  },
   "light-modern-ops": {
     label: "Light Modern Ops",
     description:
       "A bright companion to Frontier Ops Console with the same measured structure, system framing, and cleaner daytime readability.",
     recommendation: "Best light-mode starting point when you want the same system in a brighter workspace.",
     tokens: {
-      bg: "#edf3fb",
-      surface: "#f7fbff",
+      bg: "#e6eef7",
+      surface: "#fbfdff",
       "surface-elevated": "#ffffff",
-      primary: "#2563eb",
-      secondary: "#0f9d8a",
-      success: "#1f9d57",
-      warning: "#c78312",
-      danger: "#d24d57",
-      text: "#162235",
-      "text-muted": "#5d7188",
-      border: "rgba(104, 132, 166, 0.18)",
-      "input-bg": "rgba(255, 255, 255, 0.9)",
-      "focus-ring": "rgba(37, 99, 235, 0.24)",
-      "shadow-sm": "0 10px 26px rgba(89, 120, 155, 0.12)",
-      "shadow-md": "0 18px 40px rgba(89, 120, 155, 0.14)",
-      "shadow-lg": "0 28px 58px rgba(89, 120, 155, 0.18)",
+      primary: "#1f5fd6",
+      secondary: "#0f8f9c",
+      success: "#1d8d53",
+      warning: "#b8760c",
+      danger: "#c8434f",
+      text: "#142033",
+      "text-muted": "#4d647d",
+      border: "rgba(95, 126, 161, 0.24)",
+      "input-bg": "rgba(255, 255, 255, 0.96)",
+      "focus-ring": "rgba(31, 95, 214, 0.28)",
+      "shadow-sm": "0 10px 24px rgba(80, 108, 139, 0.12)",
+      "shadow-md": "0 18px 38px rgba(80, 108, 139, 0.14)",
+      "shadow-lg": "0 28px 54px rgba(80, 108, 139, 0.17)",
       "radius-sm": "8px",
       "radius-md": "12px",
       "radius-lg": "18px",
@@ -121,7 +79,7 @@ const THEME_DEFINITIONS = {
       "font-heading": '"Space Grotesk", "Segoe UI", sans-serif',
       "font-mono": '"IBM Plex Mono", "SFMono-Regular", monospace',
       "page-gradient":
-        "radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 28%), radial-gradient(circle at 82% 12%, rgba(15, 157, 138, 0.08), transparent 22%)",
+        "radial-gradient(circle at top left, rgba(31, 95, 214, 0.11), transparent 28%), radial-gradient(circle at 82% 12%, rgba(15, 143, 156, 0.08), transparent 22%)",
       "hero-glow":
         "linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(37, 99, 235, 0.06))",
       "button-primary-text": "#ffffff",
@@ -139,7 +97,8 @@ const THEME_ORDER = Object.keys(THEME_DEFINITIONS);
 const STORAGE_KEYS = {
   theme: "homelab-showroom-theme",
   density: "homelab-showroom-density",
-  favorite: "homelab-showroom-favorite-theme"
+  favorite: "homelab-showroom-favorite-theme",
+  mobilePreview: "homelab-showroom-mobile-preview"
 };
 
 const MOTION_REDUCE_QUERY = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -154,6 +113,7 @@ const tokenToggle = document.getElementById("tokenToggle");
 const tokenPanel = document.getElementById("tokenPanel");
 const tokenGrid = document.getElementById("tokenGrid");
 const spacingToggle = document.getElementById("spacingToggle");
+const mobilePreviewToggle = document.getElementById("mobilePreviewToggle");
 const favoriteThemeBtn = document.getElementById("favoriteThemeBtn");
 const recommendedThemeLabel = document.getElementById("recommendedThemeLabel");
 const revealObserver = { current: null };
@@ -235,6 +195,13 @@ function applyDensity(density) {
   localStorage.setItem(STORAGE_KEYS.density, body.dataset.density);
 }
 
+function applyMobilePreview(isEnabled) {
+  body.dataset.preview = isEnabled ? "mobile" : "desktop";
+  mobilePreviewToggle.setAttribute("aria-checked", String(isEnabled));
+  mobilePreviewToggle.classList.toggle("is-on", isEnabled);
+  localStorage.setItem(STORAGE_KEYS.mobilePreview, String(isEnabled));
+}
+
 function setTokenPanelVisibility(isVisible) {
   tokenToggle.setAttribute("aria-checked", String(isVisible));
   tokenToggle.classList.toggle("is-on", isVisible);
@@ -283,9 +250,11 @@ function toggleFavoriteTheme() {
 function restorePreferences() {
   const savedTheme = localStorage.getItem(STORAGE_KEYS.theme);
   const savedDensity = localStorage.getItem(STORAGE_KEYS.density);
+  const savedMobilePreview = localStorage.getItem(STORAGE_KEYS.mobilePreview) === "true";
 
   applyDensity(savedDensity || "comfortable");
   applyTheme(THEME_DEFINITIONS[savedTheme] ? savedTheme : "frontier-ops-console");
+  applyMobilePreview(savedMobilePreview);
   setTokenPanelVisibility(false);
 }
 
@@ -357,6 +326,11 @@ function bindEvents() {
   spacingToggle.addEventListener("click", () => {
     const nextDensity = body.dataset.density === "dense" ? "comfortable" : "dense";
     applyDensity(nextDensity);
+  });
+
+  mobilePreviewToggle.addEventListener("click", () => {
+    const nextPreviewState = body.dataset.preview !== "mobile";
+    applyMobilePreview(nextPreviewState);
   });
 
   favoriteThemeBtn.addEventListener("click", toggleFavoriteTheme);
