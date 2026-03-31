@@ -1,0 +1,616 @@
+/*
+  Jellyfin branding stylesheet
+  Adapted from the current token-driven dark operations theme in styles.css.
+  Paste this file into Jellyfin Dashboard > General > Custom CSS, or host it
+  externally and reference it from the Branding page.
+*/
+
+:root {
+  --jf-bg: #121a22;
+  --jf-bg-deep: #0d1319;
+  --jf-surface: #273845;
+  --jf-surface-elevated: #334757;
+  --jf-surface-soft: rgba(39, 56, 69, 0.78);
+  --jf-primary: #67b7ff;
+  --jf-secondary: #5fd5e6;
+  --jf-success: #4ade80;
+  --jf-warning: #ffb027;
+  --jf-danger: #ff5a5a;
+  --jf-text: #edf5fb;
+  --jf-text-muted: #afbfce;
+  --jf-border: rgba(155, 178, 198, 0.24);
+  --jf-border-strong: rgba(95, 213, 230, 0.28);
+  --jf-input-bg: rgba(21, 31, 40, 0.88);
+  --jf-focus: rgba(103, 183, 255, 0.48);
+  --jf-shadow-sm: 0 10px 18px rgba(5, 9, 12, 0.2);
+  --jf-shadow-md: 0 18px 28px rgba(5, 9, 12, 0.25);
+  --jf-shadow-lg: 0 28px 44px rgba(5, 9, 12, 0.3);
+  --jf-radius-sm: 8px;
+  --jf-radius-md: 12px;
+  --jf-radius-lg: 16px;
+  --jf-font-body: "Space Grotesk", "Segoe UI", sans-serif;
+  --jf-font-mono: "IBM Plex Mono", "JetBrains Mono", monospace;
+  --jf-page-gradient:
+    radial-gradient(circle at top left, rgba(103, 183, 255, 0.16), transparent 32%),
+    radial-gradient(circle at 84% 8%, rgba(95, 213, 230, 0.1), transparent 26%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.014), transparent 24%);
+  --jf-panel-stripe: linear-gradient(90deg, rgba(95, 213, 230, 0.45), rgba(103, 183, 255, 0.52));
+  --jf-texture:
+    linear-gradient(180deg, rgba(236, 245, 255, 0.018), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.22)),
+    linear-gradient(180deg, rgba(232, 243, 255, 0.028), transparent 18%, transparent 76%, rgba(214, 231, 248, 0.02));
+}
+
+html {
+  background-color: var(--jf-bg);
+  color-scheme: dark;
+}
+
+body,
+.backgroundContainer,
+.skinBody,
+.mainDrawer,
+.dialog,
+.formDialog,
+.dashboardDocument {
+  background:
+    var(--jf-page-gradient),
+    linear-gradient(180deg, rgba(18, 26, 34, 0.94), var(--jf-bg)) !important;
+  color: var(--jf-text) !important;
+  font-family: var(--jf-font-body) !important;
+}
+
+body::before,
+.backgroundContainer::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 0,
+      rgba(255, 255, 255, 0) 2px,
+      rgba(255, 255, 255, 0.02) 3px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02), transparent 8%, transparent 92%, rgba(255, 255, 255, 0.016));
+  opacity: 0.45;
+  z-index: 0;
+}
+
+.page,
+.pageContainer,
+.skinBody > .mainAnimatedPage,
+.dialogContent,
+.mainDrawer-scrollContainer,
+.drawer-open .mainDrawer {
+  position: relative;
+  z-index: 1;
+}
+
+a,
+.textActionButton,
+.button-link {
+  color: var(--jf-primary) !important;
+}
+
+.dimText,
+.secondaryText,
+.fieldDescription,
+.cardText-secondary,
+.listItemBodyText-secondary,
+.itemMiscInfo,
+.overview,
+.programSecondaryTitle,
+.sectionTitleTextButton,
+.footerText {
+  color: var(--jf-text-muted) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+.pageTitle,
+.sectionTitle,
+.cardText-primary,
+.listItemBodyText,
+.detailSectionHeader,
+.headerTabs .emby-tab-button,
+.sectionTabs .emby-tab-button {
+  color: var(--jf-text) !important;
+  font-family: var(--jf-font-body) !important;
+}
+
+.skinHeader,
+.skinHeader-withBackground,
+.skinHeader.focuscontainer-x,
+.skinHeader.focuscontainer-x.skinHeader-withBackground,
+.skinHeader.focuscontainer-x.skinHeader-withBackground.skinHeader-blurred,
+.headerTabs,
+.sectionTabs {
+  background:
+    linear-gradient(180deg, rgba(39, 56, 69, 0.9), rgba(18, 26, 34, 0.82)) !important;
+  border-bottom: 1px solid var(--jf-border) !important;
+  box-shadow: 0 10px 24px rgba(5, 9, 12, 0.22) !important;
+  backdrop-filter: blur(18px);
+}
+
+.headerLeft,
+.headerRight,
+.headerButton,
+.paper-icon-button-light {
+  color: var(--jf-text) !important;
+}
+
+.headerButton:hover,
+.paper-icon-button-light:hover,
+.btnUserMenu:hover,
+.btnSearch:hover {
+  color: var(--jf-primary) !important;
+}
+
+.mainDrawer,
+.mainDrawer-scrollContainer,
+.navMenuOption,
+.navMenuOption-selected,
+.paperList,
+.dashboardSection,
+.dashboardPaper,
+.visualCardBox,
+.cardBox,
+.itemDetailPage .detailPagePrimaryContainer,
+.itemDetailPage .itemDetailImage,
+.selectionCommandsPanel,
+.upNextDialog-poster-img {
+  background:
+    linear-gradient(180deg, rgba(51, 71, 87, 0.96), rgba(39, 56, 69, 0.94)) !important;
+  border: 1px solid var(--jf-border) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(228, 240, 252, 0.035),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.16),
+    var(--jf-shadow-sm) !important;
+  color: var(--jf-text) !important;
+}
+
+.mainDrawer::before,
+.dialog::before,
+.cardBox::before,
+.visualCardBox::before,
+.dashboardPaper::before,
+.selectionCommandsPanel::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: var(--jf-panel-stripe);
+  opacity: 0.88;
+  pointer-events: none;
+}
+
+.mainDrawer::after,
+.dialog::after,
+.cardBox::after,
+.visualCardBox::after,
+.dashboardPaper::after,
+.selectionCommandsPanel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--jf-texture);
+  pointer-events: none;
+  opacity: 0.96;
+}
+
+.mainDrawer > *,
+.dialog > *,
+.cardBox > *,
+.visualCardBox > *,
+.dashboardPaper > *,
+.selectionCommandsPanel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.navMenuOption {
+  border-radius: var(--jf-radius-md) !important;
+  margin: 0.2rem 0.55rem !important;
+  transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.navMenuOption:hover,
+.listItem:hover,
+.listItem:focus,
+.cardBox:hover,
+.visualCardBox:hover {
+  background: rgba(51, 71, 87, 0.92) !important;
+  border-color: var(--jf-border-strong) !important;
+}
+
+.navMenuOption-selected,
+.selected,
+.emby-tab-button-active,
+.raised.emby-button,
+.button-submit,
+.fab,
+.paper-fab,
+.chkContainer .checkboxOutline,
+.mdl-switch.is-checked .mdl-switch__track,
+.itemProgressBarForeground,
+.countIndicator,
+.playedIndicator {
+  background: linear-gradient(135deg, var(--jf-primary), var(--jf-secondary)) !important;
+  color: #071018 !important;
+  border-color: transparent !important;
+}
+
+.navMenuOption-selected *,
+.emby-tab-button-active *,
+.button-submit *,
+.raised.emby-button * {
+  color: #071018 !important;
+}
+
+.emby-tab-button {
+  color: var(--jf-text-muted) !important;
+  border-radius: 999px !important;
+  margin: 0.25rem 0.35rem 0.35rem 0 !important;
+  padding: 0.95rem 1.35rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.emby-tab-button:hover {
+  background: rgba(103, 183, 255, 0.12) !important;
+  color: var(--jf-text) !important;
+}
+
+.emby-button,
+.button-cancel,
+.button-flat,
+.btnRefresh,
+.raised,
+.fab,
+.paper-fab {
+  border-radius: 999px !important;
+  border: 1px solid var(--jf-border) !important;
+  background: rgba(39, 56, 69, 0.76) !important;
+  color: var(--jf-text) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(228, 240, 252, 0.03),
+    0 8px 16px rgba(5, 9, 12, 0.16) !important;
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.emby-button:hover,
+.button-cancel:hover,
+.button-flat:hover,
+.btnRefresh:hover,
+.raised:hover,
+.fab:hover,
+.paper-fab:hover {
+  transform: translateY(-1px);
+  border-color: var(--jf-border-strong) !important;
+  background: rgba(51, 71, 87, 0.9) !important;
+}
+
+.emby-input,
+.emby-textarea,
+.emby-select-withcolor,
+.selectContainer .emby-select,
+.selectionCommandsPanel .emby-input,
+.selectionCommandsPanel .emby-select-withcolor {
+  background: var(--jf-input-bg) !important;
+  color: var(--jf-text) !important;
+  border: 1px solid var(--jf-border) !important;
+  border-radius: var(--jf-radius-sm) !important;
+  box-shadow: inset 0 1px 0 rgba(228, 240, 252, 0.03) !important;
+}
+
+.emby-input:focus,
+.emby-textarea:focus,
+.emby-select-withcolor:focus,
+.selectContainer .emby-select:focus,
+.is-focused .emby-input,
+.is-focused .emby-textarea,
+.is-focused .emby-select-withcolor {
+  border-color: var(--jf-primary) !important;
+  box-shadow: 0 0 0 3px var(--jf-focus) !important;
+}
+
+.checkboxOutline,
+.radioOutline {
+  border-color: var(--jf-border) !important;
+}
+
+.card,
+.cardScalable,
+.cardContent,
+.cardPadder,
+.itemDetailImage,
+.detailImageContainer .card,
+.personCard,
+.chapterCard {
+  border-radius: var(--jf-radius-lg) !important;
+}
+
+.cardBox,
+.visualCardBox {
+  overflow: hidden !important;
+  border-radius: var(--jf-radius-lg) !important;
+  transition: transform 220ms cubic-bezier(0.25, 1, 0.5, 1), box-shadow 220ms ease, border-color 220ms ease !important;
+}
+
+.cardBox:hover,
+.visualCardBox:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    inset 0 1px 0 rgba(228, 240, 252, 0.035),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.16),
+    var(--jf-shadow-md) !important;
+}
+
+.cardOverlayButton,
+.cardOverlayFab-primary,
+.listItemIcon,
+.subtitleIcon-text,
+.userUsageIcon,
+.ratingbutton-icon-withrating {
+  color: var(--jf-text) !important;
+}
+
+.cardOverlayButton-br,
+.cardOverlayFab-primary {
+  background: rgba(13, 19, 25, 0.72) !important;
+  border: 1px solid rgba(103, 183, 255, 0.24) !important;
+  backdrop-filter: blur(10px);
+}
+
+.cardImageContainer::after,
+.cardContent::after,
+.itemDetailImage::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 44%;
+  background: linear-gradient(180deg, transparent, rgba(7, 16, 24, 0.5));
+  pointer-events: none;
+}
+
+.cardIndicators,
+.listItem-border,
+.detailRibbon {
+  background: rgba(13, 19, 25, 0.72) !important;
+  border-color: rgba(103, 183, 255, 0.24) !important;
+}
+
+.playedIndicator,
+.countIndicator {
+  box-shadow: 0 0 0 0.22rem rgba(103, 183, 255, 0.14) !important;
+}
+
+.itemProgressBar {
+  background: rgba(13, 19, 25, 0.6) !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+}
+
+.itemProgressBarForeground {
+  border-radius: inherit !important;
+}
+
+.listItem,
+.listItem-border,
+.table-row,
+.detailListItem,
+.dashboardGeneralForm .listItem {
+  background: rgba(39, 56, 69, 0.48) !important;
+  border-color: var(--jf-border) !important;
+  color: var(--jf-text) !important;
+}
+
+.listItem-border + .listItem-border,
+.table-row + .table-row,
+.listItem + .listItem {
+  border-top-color: rgba(155, 178, 198, 0.14) !important;
+}
+
+.itemsContainer .cardText,
+.itemsContainer .cardText-first,
+.itemName,
+.itemActionText {
+  color: var(--jf-text) !important;
+}
+
+.detailPagePrimaryContent,
+.detailPageContent,
+.detailSectionContent,
+.itemDetailsGroup {
+  color: var(--jf-text) !important;
+}
+
+.trackSelections .selectLabel,
+.selectLabel,
+.inputLabel,
+.fldDescription,
+.listItemBodyText-secondary,
+.chapterName {
+  color: var(--jf-text-muted) !important;
+}
+
+.dialog,
+.formDialog,
+.promptDialog {
+  border-radius: var(--jf-radius-lg) !important;
+  overflow: hidden !important;
+}
+
+.dialogHeader,
+.formDialogHeader,
+.dashboardSection .sectionTitleContainer {
+  background: rgba(39, 56, 69, 0.9) !important;
+  border-bottom: 1px solid var(--jf-border) !important;
+}
+
+.toast,
+.innerCardFooter,
+.osdHeader,
+.nowPlayingBar,
+.appfooter {
+  background: rgba(13, 19, 25, 0.88) !important;
+  color: var(--jf-text) !important;
+  border-top: 1px solid var(--jf-border) !important;
+  backdrop-filter: blur(16px);
+}
+
+.sliderBubble,
+.mdl-slider-background-lower,
+.volumeSliderContainer .mdl-slider-background-lower,
+.paper-slider-slider {
+  color: var(--jf-primary) !important;
+}
+
+.progressring-spiner,
+.progressring-fg {
+  border-color: var(--jf-primary) !important;
+}
+
+.chapterThumbTextContainer,
+.upNextDialog-countdownText,
+.serverName,
+.welcomeContent .sectionTitle {
+  color: var(--jf-text) !important;
+}
+
+.manualLoginForm,
+#loginPage .readOnlyContent,
+#loginPage form {
+  max-width: 30rem !important;
+  margin-inline: auto !important;
+}
+
+#loginPage {
+  background:
+    radial-gradient(circle at top left, rgba(103, 183, 255, 0.18), transparent 30%),
+    radial-gradient(circle at 82% 10%, rgba(95, 213, 230, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(18, 26, 34, 0.94), rgba(13, 19, 25, 0.98)) !important;
+}
+
+#loginPage .readOnlyContent,
+#loginPage form,
+#loginPage .padded-left.padded-right.padded-bottom-page {
+  background:
+    linear-gradient(180deg, rgba(51, 71, 87, 0.94), rgba(39, 56, 69, 0.92)) !important;
+  border: 1px solid var(--jf-border) !important;
+  border-radius: calc(var(--jf-radius-lg) + 2px) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(228, 240, 252, 0.035),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.16),
+    var(--jf-shadow-lg) !important;
+  padding: 1.6rem !important;
+}
+
+#loginPage h1,
+#loginPage .visualLoginForm .sectionTitle {
+  color: var(--jf-text) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.02em;
+}
+
+#loginPage .raised.cancel.block.btnManual.emby-button,
+#loginPage .raised.cancel.block.btnForgotPassword.emby-button {
+  background: rgba(39, 56, 69, 0.7) !important;
+}
+
+.btnUserViewHeader,
+.userParentalControl,
+.dashboardSection .sectionTitle,
+.adminDrawerLogo,
+.content-primary,
+.content-secondary {
+  color: var(--jf-text) !important;
+}
+
+.material-icons,
+.md-icon,
+.iconOsdProgressInner,
+.chapterThumbTextContainer .material-icons {
+  color: inherit !important;
+}
+
+.dashboardPage .cardBox,
+.dashboardPage .dashboardPaper,
+.dashboardPage .paperList {
+  border-radius: var(--jf-radius-md) !important;
+}
+
+.dashboardPage .paperList,
+.dashboardPage .listItem {
+  background: rgba(39, 56, 69, 0.58) !important;
+}
+
+.guide-channelHeaderCell,
+.guide-programCell,
+.guide-date-tab-button {
+  background: rgba(39, 56, 69, 0.7) !important;
+  color: var(--jf-text) !important;
+  border-color: var(--jf-border) !important;
+}
+
+.guide-programCell-active,
+.guide-date-tab-button.emby-tab-button-active {
+  background: linear-gradient(135deg, var(--jf-primary), var(--jf-secondary)) !important;
+  color: #071018 !important;
+}
+
+.osdTextContainer,
+.chapterThumbContainer,
+.countIndicator,
+.mediaSourceIndicator,
+.endsAtText {
+  color: var(--jf-text) !important;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(13, 19, 25, 0.78);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(95, 213, 230, 0.48), rgba(103, 183, 255, 0.42));
+  border: 2px solid rgba(13, 19, 25, 0.72);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(95, 213, 230, 0.65), rgba(103, 183, 255, 0.58));
+}
+
+@media (max-width: 900px) {
+  .emby-tab-button {
+    padding: 0.82rem 1.05rem !important;
+  }
+
+  #loginPage .readOnlyContent,
+  #loginPage form,
+  #loginPage .padded-left.padded-right.padded-bottom-page {
+    padding: 1.1rem !important;
+    margin-inline: 1rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
