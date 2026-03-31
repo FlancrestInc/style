@@ -368,6 +368,7 @@ td .status-dot,
   background: color-mix(in srgb, var(--surface) 97%, transparent);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
   padding: clamp(1.15rem, 1.8vw, 1.5rem);
   transition:
     transform 220ms var(--ease-out-quart),
@@ -376,7 +377,9 @@ td .status-dot,
     background-color 220ms var(--ease-out-soft);
 }
 
-:is(.panel, .panel-elevated, .showcase-block)::before {
+.panel::before,
+.panel-elevated::before,
+.showcase-block::before {
   content: "";
   position: absolute;
   inset: 0 0 auto 0;
@@ -386,36 +389,67 @@ td .status-dot,
   pointer-events: none;
 }
 
-:is(.panel, .panel-elevated, .showcase-block)::after {
+.panel::after,
+.panel-elevated::after,
+.showcase-block::after {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
+  background:
+    var(--texture-fine),
+    var(--steel-sheen),
+    radial-gradient(circle at top right, rgba(228, 240, 252, 0.024), transparent 34%);
   opacity: 0.98;
 }
 
-:is(.panel, .panel-elevated, .showcase-block) {
+.panel,
+.panel-elevated,
+.showcase-block {
   box-shadow:
     inset 0 0 0 1px rgba(0, 0, 0, 0.18),
     inset 0 1px 0 rgba(228, 240, 252, 0.04),
     var(--shadow-sm);
 }
 
-:is(.panel, .panel-elevated, .showcase-block) > * {
+.panel > *,
+.panel-elevated > *,
+.showcase-block > * {
   position: relative;
   z-index: 1;
 }
 
-:is(.panel, .panel-elevated, .showcase-block, .section-card, .control-panel, .note-card, .why-panel, .modal-preview, .type-meta, .stat-card)::marker {
+.panel::marker,
+.panel-elevated::marker,
+.showcase-block::marker,
+.section-card::marker,
+.control-panel::marker,
+.note-card::marker,
+.why-panel::marker,
+.modal-preview::marker,
+.type-meta::marker,
+.stat-card::marker {
   content: "";
 }
 
-:is(.section-card, .control-panel, .showcase-block, .note-card, .why-panel, .modal-preview, .type-meta)::before {
+.section-card::before,
+.control-panel::before,
+.showcase-block::before,
+.note-card::before,
+.why-panel::before,
+.modal-preview::before,
+.type-meta::before {
   background:
     linear-gradient(90deg, color-mix(in srgb, var(--secondary) 82%, transparent), color-mix(in srgb, var(--primary) 44%, transparent));
 }
 
-:is(.section-card, .control-panel, .showcase-block, .note-card, .why-panel, .modal-preview, .type-meta)::after {
+.section-card::after,
+.control-panel::after,
+.showcase-block::after,
+.note-card::after,
+.why-panel::after,
+.modal-preview::after,
+.type-meta::after {
   background:
     radial-gradient(circle at 1rem 1rem, var(--panel-rivet-highlight) 0 0.85px, var(--panel-rivet-mid) 1px 2.1px, var(--panel-rivet-shadow) 2.25px 3px, transparent 3.2px),
     radial-gradient(circle at calc(100% - 1rem) 1rem, var(--panel-rivet-highlight) 0 0.85px, var(--panel-rivet-mid) 1px 2.1px, var(--panel-rivet-shadow) 2.25px 3px, transparent 3.2px),
@@ -429,11 +463,13 @@ td .status-dot,
     inset 0 -1px 0 rgba(0, 0, 0, 0.14);
 }
 
-:is(.panel-heading, .section-heading) {
+.panel-heading,
+.section-heading {
   position: relative;
 }
 
-:is(.panel-heading, .section-heading)::after {
+.panel-heading::after,
+.section-heading::after {
   content: "";
   position: absolute;
   left: 0;
@@ -444,7 +480,8 @@ td .status-dot,
   opacity: 0.72;
 }
 
-:is(.panel-heading, .section-heading)::before {
+.panel-heading::before,
+.section-heading::before {
   content: "INSPECTION PANEL";
   position: absolute;
   right: 0;
@@ -479,7 +516,13 @@ td .status-dot,
     var(--shadow-md);
 }
 
-:is(.section-card, .control-panel, .showcase-block, .note-card, .why-panel, .modal-preview, .type-meta) {
+.section-card,
+.control-panel,
+.showcase-block,
+.note-card,
+.why-panel,
+.modal-preview,
+.type-meta {
   clip-path: polygon(0 0, calc(100% - 1.4rem) 0, 100% 1.4rem, 100% 100%, 0 100%);
   padding-left: calc(clamp(1.15rem, 1.8vw, 1.5rem) + 0.45rem);
 }
@@ -512,11 +555,25 @@ td .status-dot,
   padding-top: 1rem;
 }
 
-:is(.section-card, .control-panel, .showcase-block, .note-card, .why-panel, .modal-preview, .type-meta, .stat-card) {
+.section-card,
+.control-panel,
+.showcase-block,
+.note-card,
+.why-panel,
+.modal-preview,
+.type-meta,
+.stat-card {
   position: relative;
 }
 
-:is(.section-card, .control-panel, .showcase-block, .note-card, .why-panel, .modal-preview, .type-meta, .stat-card) > * {
+.section-card > * ,
+.control-panel > *,
+.showcase-block > *,
+.note-card > *,
+.why-panel > *,
+.modal-preview > *,
+.type-meta > *,
+.stat-card > * {
   position: relative;
   z-index: 1;
 }
@@ -527,7 +584,14 @@ td .status-dot,
     inset 0 -1px 0 rgba(0, 0, 0, 0.14);
 }
 
-:is(.section-card, .control-panel, .showcase-block, .note-card, .why-panel, .modal-preview, .type-meta, .stat-card)::before {
+.section-card::before,
+.control-panel::before,
+.showcase-block::before,
+.note-card::before,
+.why-panel::before,
+.modal-preview::before,
+.type-meta::before,
+.stat-card::before {
   content: "";
   position: absolute;
   left: 0.45rem;
@@ -565,7 +629,13 @@ td .status-dot,
   background-position: 0 100%, 0 calc(100% - 0.2rem);
 }
 
-:is(.panel-heading, .section-heading, .modal-header, .service-card-top, .topnav-row, .progress-label, .inline-setting) {
+.panel-heading,
+.section-heading,
+.modal-header,
+.service-card-top,
+.topnav-row,
+.progress-label,
+.inline-setting {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -573,7 +643,8 @@ td .status-dot,
   flex-wrap: wrap;
 }
 
-:is(.panel-heading, .section-heading) {
+.panel-heading,
+.section-heading {
   padding-right: 8.2rem;
   min-height: 2.4rem;
 }
@@ -622,7 +693,13 @@ td .status-dot,
   gap: var(--space-3);
 }
 
-:is(.theme-description, .section-note, .muted, .stat-foot, .note-card p, .why-panel p, .empty-state p) {
+.theme-description,
+.section-note,
+.muted,
+.stat-foot,
+.note-card p,
+.why-panel p,
+.empty-state p {
   color: color-mix(in srgb, var(--text-muted) 82%, var(--text) 18%);
 }
 
@@ -1213,7 +1290,9 @@ h4 {
     linear-gradient(180deg, color-mix(in srgb, var(--surface-elevated) 94%, white 10%), color-mix(in srgb, var(--surface) 98%, black 2%));
 }
 
-:is(.showcase-block, .panel, .panel-elevated)::after {
+.showcase-block::after,
+.panel::after,
+.panel-elevated::after {
   background:
     radial-gradient(circle at 1rem 1rem, var(--panel-rivet-highlight) 0 0.85px, var(--panel-rivet-mid) 1px 2.1px, var(--panel-rivet-shadow) 2.25px 3px, transparent 3.2px),
     radial-gradient(circle at calc(100% - 1rem) 1rem, var(--panel-rivet-highlight) 0 0.85px, var(--panel-rivet-mid) 1px 2.1px, var(--panel-rivet-shadow) 2.25px 3px, transparent 3.2px),
@@ -1222,7 +1301,9 @@ h4 {
     linear-gradient(180deg, transparent, transparent calc(100% - 1px), rgba(0, 0, 0, 0.18));
 }
 
-:is(.showcase-block, .note-card, .why-panel) h3 {
+.showcase-block h3,
+.note-card h3,
+.why-panel h3 {
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
@@ -1657,7 +1738,10 @@ body[data-theme="light-modern-ops"] .code-block code::before {
   box-shadow: 0 0 0 0.16rem color-mix(in srgb, var(--secondary) 16%, transparent);
 }
 
-:is(.note-card, .why-panel, .modal-preview, .type-meta) {
+.note-card,
+.why-panel,
+.modal-preview,
+.type-meta {
   box-shadow:
     inset 0 1px 0 rgba(228, 240, 252, 0.03),
     inset 0 0 0 1px rgba(0, 0, 0, 0.14),
@@ -1691,49 +1775,6 @@ body[data-theme="light-modern-ops"] .code-block code::before {
   .theme-switcher::after,
   .table-wrap::before {
     display: none;
-  }
-
-  .hero,
-  .split-section,
-  .type-showcase,
-  .stats-row,
-  .service-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .hero {
-    grid-template-columns: 1fr;
-  }
-
-  .showcase-grid,
-  .token-grid,
-  .nav-preview-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .notes-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .stats-row,
-  .service-grid,
-  .showcase-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .stats-row .stat-card,
-  .service-card,
-  .showcase-block,
-  .showcase-block.wide {
-    grid-column: span 1;
-  }
-
-  .control-panel {
-    position: static;
-  }
-
-  .token-card {
-    padding-top: calc(var(--space-3) + 1.45rem);
   }
 }
 
@@ -2033,6 +2074,55 @@ body.is-retheming .showcase-block {
 
   body.motion-enabled .progress-bar span {
     transform: none;
+  }
+}
+
+@media (max-width: 1080px) {
+  .hero,
+  .split-section,
+  .type-showcase,
+  .stats-row,
+  .service-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .showcase-grid,
+  .token-grid,
+  .nav-preview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .notes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-row,
+  .service-grid,
+  .showcase-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stats-row .stat-card,
+  .service-card,
+  .showcase-block,
+  .showcase-block.wide {
+    grid-column: span 1;
+  }
+
+  .showcase-block.wide {
+    grid-column: span 1;
+  }
+
+  .control-panel {
+    position: static;
+  }
+
+  .token-card {
+    padding-top: calc(var(--space-3) + 1.45rem);
   }
 }
 
