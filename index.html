@@ -1,47 +1,40 @@
 <!--
 README: Homelab Brand Style Showroom
-This page uses a token-based theme system powered by CSS custom properties.
-Theme values are defined centrally in script.js and applied to :root at runtime.
-Shared components in styles.css consume only those tokens so the design language
-can later be extracted into a reusable stylesheet for multiple homelab apps.
-To add a new theme, create a new entry in THEME_DEFINITIONS and provide the
-full token set plus a short description. The same HTML will then render in that
-theme automatically.
+This page now ships as a single static theme.
+Program Manager Green is applied directly through styles.css with no runtime
+theme switching or animation system.
 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frontier Ops Console</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Program Manager Green</title>
+  <link rel="stylesheet" href="styles.css?v=20260414-1">
 </head>
 <body>
   <div class="page-shell">
-    <div class="background-orb orb-a"></div>
-    <div class="background-orb orb-b"></div>
-
     <header class="hero panel">
         <div class="hero-copy">
           <div class="eyebrow">
             <span class="eyebrow-dot"></span>
-            Maintained frontier stack for self-hosted systems
+            Vintage desktop shell for self-hosted systems
           </div>
-          <h1>Frontier Ops Console</h1>
+          <h1>Program Manager Green</h1>
           <p class="hero-subtitle">
-            A branded proof-of-concept for applying one rugged, future-retro control language across media, automation, development, and infrastructure tools in the homelab.
+            A polished Windows 3.1-inspired control surface for homelab dashboards, media tools, and internal utilities, rebuilt with cleaner spacing and modern readability.
           </p>
         <div class="hero-meta">
           <div>
-            <span class="meta-label">Current recommendation</span>
-            <strong id="recommendedThemeLabel">Frontier Ops Console</strong>
+            <span class="meta-label">Active shell</span>
+            <strong>Program Manager Green</strong>
           </div>
           <div>
             <span class="meta-label">Operating character</span>
-            <strong>Industrial, lived-in, reliable, and personal</strong>
+            <strong>Familiar, playful, tactile, and easier to read</strong>
           </div>
         </div>
       </div>
@@ -49,50 +42,23 @@ theme automatically.
       <aside class="control-panel panel-elevated">
         <div class="panel-heading">
           <div>
-            <p class="panel-kicker">Console controls</p>
-            <h2>Theme bay</h2>
+            <p class="panel-kicker">Theme notes</p>
+            <h2>Desktop brief</h2>
           </div>
-          <button class="favorite-toggle ghost-button" id="favoriteThemeBtn" type="button" aria-pressed="false">
-            Pin current skin
-          </button>
         </div>
 
         <div class="control-stack">
-          <label class="field">
-            <span class="field-label">Active console skin</span>
-            <div class="theme-switcher">
-              <button class="icon-button" id="prevThemeBtn" type="button" aria-label="Previous theme">&lt;</button>
-              <select id="themeSelect" aria-label="Select theme"></select>
-              <button class="icon-button" id="nextThemeBtn" type="button" aria-label="Next theme">&gt;</button>
-            </div>
-          </label>
-
           <div class="field">
-            <span class="field-label">Deployment notes</span>
-            <p id="themeDescription" class="theme-description"></p>
+            <span class="field-label">Desktop background</span>
+            <p class="theme-description">Felt-green workspace with subtle texture instead of gradients and glow.</p>
           </div>
-
-          <div class="toggle-row">
-            <label class="switch-wrap">
-              <span>Expose live tokens</span>
-              <button id="tokenToggle" class="switch" type="button" role="switch" aria-checked="false">
-                <span class="switch-handle"></span>
-              </button>
-            </label>
-
-            <label class="switch-wrap">
-              <span>Expanded spacing</span>
-              <button id="spacingToggle" class="switch" type="button" role="switch" aria-checked="true">
-                <span class="switch-handle"></span>
-              </button>
-            </label>
-
-            <label class="switch-wrap">
-              <span>Mobile showcase mode</span>
-              <button id="mobilePreviewToggle" class="switch" type="button" role="switch" aria-checked="false">
-                <span class="switch-handle"></span>
-              </button>
-            </label>
+          <div class="field">
+            <span class="field-label">Window chrome</span>
+            <p class="theme-description">Beveled gray bodies, cobalt title bars, and period-inspired controls with calmer proportions.</p>
+          </div>
+          <div class="field">
+            <span class="field-label">Design intent</span>
+            <p class="theme-description">Homage over replica: the nostalgia stays, but the roughest old UI habits are cleaned up.</p>
           </div>
         </div>
       </aside>
@@ -501,7 +467,7 @@ healthcheck: all monitored services responding</code></pre>
         </article>
       </section>
 
-      <section class="panel section-card token-panel hidden" id="tokenPanel">
+      <section class="panel section-card token-panel">
         <div class="section-heading">
           <div>
             <p class="panel-kicker">Theme tokens</p>
@@ -509,11 +475,20 @@ healthcheck: all monitored services responding</code></pre>
           </div>
           <p class="section-note">These are the live CSS custom properties driving the current console skin.</p>
         </div>
-        <div class="token-grid" id="tokenGrid"></div>
+        <div class="token-grid">
+          <article class="token-card"><span class="technical-label">--bg</span><code>#0a7b61</code></article>
+          <article class="token-card"><span class="technical-label">--surface</span><code>#c7c7c7</code></article>
+          <article class="token-card"><span class="technical-label">--surface-elevated</span><code>#dfdfdf</code></article>
+          <article class="token-card"><span class="technical-label">--primary</span><code>#0b57a3</code></article>
+          <article class="token-card"><span class="technical-label">--secondary</span><code>#f3f3f3</code></article>
+          <article class="token-card"><span class="technical-label">--text</span><code>#101010</code></article>
+          <article class="token-card"><span class="technical-label">--text-muted</span><code>#444444</code></article>
+          <article class="token-card"><span class="technical-label">--border</span><code>rgba(16, 16, 16, 0.48)</code></article>
+          <article class="token-card"><span class="technical-label">--font-body</span><code>"Tahoma", "Geneva", "MS Sans Serif", sans-serif</code></article>
+          <article class="token-card"><span class="technical-label">--font-mono</span><code>"Lucida Console", "Courier New", monospace</code></article>
+        </div>
       </section>
     </main>
   </div>
-
-  <script src="script.js"></script>
 </body>
 </html>

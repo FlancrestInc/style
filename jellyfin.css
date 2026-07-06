@@ -73,7 +73,7 @@ body::before,
       rgba(255, 255, 255, 0.02) 3px
     ),
     linear-gradient(90deg, rgba(255, 255, 255, 0.02), transparent 8%, transparent 92%, rgba(255, 255, 255, 0.016));
-  opacity: 0.45;
+  opacity: 0.18;
   z-index: 0;
 }
 
@@ -132,7 +132,7 @@ h4,
     linear-gradient(180deg, rgba(39, 56, 69, 0.9), rgba(18, 26, 34, 0.82)) !important;
   border-bottom: 1px solid var(--jf-border) !important;
   box-shadow: 0 10px 24px rgba(5, 9, 12, 0.22) !important;
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(10px);
 }
 
 .headerLeft,
@@ -178,13 +178,7 @@ h4,
 .visualCardBox::before,
 .dashboardPaper::before,
 .selectionCommandsPanel::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 4px;
-  background: var(--jf-panel-stripe);
-  opacity: 0.88;
-  pointer-events: none;
+  display: none;
 }
 
 .mainDrawer::after,
@@ -196,9 +190,9 @@ h4,
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--jf-texture);
+  background: linear-gradient(180deg, rgba(236, 245, 255, 0.012), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.14));
   pointer-events: none;
-  opacity: 0.96;
+  opacity: 0.76;
 }
 
 .mainDrawer > *,
@@ -278,8 +272,8 @@ h4,
   background: rgba(39, 56, 69, 0.76) !important;
   color: var(--jf-text) !important;
   box-shadow:
-    inset 0 1px 0 rgba(228, 240, 252, 0.03),
-    0 8px 16px rgba(5, 9, 12, 0.16) !important;
+    inset 0 1px 0 rgba(228, 240, 252, 0.02),
+    0 4px 12px rgba(5, 9, 12, 0.12) !important;
   transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
 }
 
@@ -344,10 +338,9 @@ h4,
 
 .cardBox:hover,
 .visualCardBox:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow:
-    inset 0 1px 0 rgba(228, 240, 252, 0.035),
-    inset 0 0 0 1px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(228, 240, 252, 0.025),
     var(--jf-shadow-md) !important;
 }
 
@@ -364,7 +357,7 @@ h4,
 .cardOverlayFab-primary {
   background: rgba(13, 19, 25, 0.72) !important;
   border: 1px solid rgba(103, 183, 255, 0.24) !important;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(6px);
 }
 
 .cardImageContainer::after,
@@ -461,7 +454,7 @@ h4,
   background: rgba(13, 19, 25, 0.88) !important;
   color: var(--jf-text) !important;
   border-top: 1px solid var(--jf-border) !important;
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(10px);
 }
 
 .sliderBubble,
@@ -505,8 +498,7 @@ h4,
   border: 1px solid var(--jf-border) !important;
   border-radius: calc(var(--jf-radius-lg) + 2px) !important;
   box-shadow:
-    inset 0 1px 0 rgba(228, 240, 252, 0.035),
-    inset 0 0 0 1px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(228, 240, 252, 0.025),
     var(--jf-shadow-lg) !important;
   padding: 1.6rem !important;
 }
