@@ -1,0 +1,29 @@
+.ds-app-shell {
+  width: min(100%, var(--ds-window-max-width));
+  min-height: 100vh;
+  margin-inline: auto;
+  padding: clamp(var(--ds-space-300), 2vw, var(--ds-space-500));
+}
+
+.ds-stack {
+  display: grid;
+  gap: var(--ds-stack-gap, var(--ds-space-400));
+}
+
+.ds-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-cluster-gap, var(--ds-space-300));
+  align-items: center;
+}
+
+.ds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--ds-grid-min, 16rem)), 1fr));
+  gap: var(--ds-grid-gap, var(--ds-space-400));
+}
+
+.ds-table-wrap {
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}

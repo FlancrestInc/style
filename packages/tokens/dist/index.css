@@ -1,0 +1,53 @@
+/* Generated from src/index.css; do not edit. */
+/* ./tokens.css */
+:root {
+  --ds-border-width-control: 1px;
+  --ds-space-100: 0.25rem;
+  --ds-space-200: 0.5rem;
+  --ds-space-300: 0.75rem;
+  --ds-space-400: 1rem;
+  --ds-space-500: 1.5rem;
+  --ds-space-600: 2rem;
+  --ds-space-700: 3rem;
+  --ds-space-800: 4rem;
+  --ds-font-size-body: 1rem;
+  --ds-font-size-caption: 0.8125rem;
+  --ds-font-size-title: clamp(1.25rem, 2vw, 1.75rem);
+  --ds-line-height-body: 1.5;
+  --ds-z-base: 0;
+  --ds-z-dropdown: 400;
+  --ds-z-toast: 700;
+  --ds-z-modal: 800;
+  --ds-motion-duration-fast: 120ms;
+  --ds-motion-duration-standard: 160ms;
+  --ds-motion-duration-window: 180ms;
+  --ds-motion-ease-mechanical: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ./themes/win31.css */
+[data-ds-theme="win31"] {
+  color-scheme: light;
+  --ds-surface-canvas: #008080;
+  --ds-surface-canvas-shadow: #006a6a;
+  --ds-surface-window: #c8c8c8;
+  --ds-surface-control: #e6e6e6;
+  --ds-surface-control-hover: #f2f2f2;
+  --ds-surface-sunken: #bdbdbd;
+  --ds-surface-input: #ffffff;
+  --ds-text-primary: #101010;
+  --ds-text-secondary: #3d3d3d;
+  --ds-text-on-accent: #ffffff;
+  --ds-accent-primary: #0a3d9f;
+  --ds-accent-primary-end: #2f77d6;
+  --ds-status-success-surface: #d9efdb;
+  --ds-status-warning-surface: #f6e5bf;
+  --ds-status-danger-surface: #f5d4d4;
+  --ds-border-strong: #111111;
+  --ds-border-raised-highlight: #ffffff;
+  --ds-border-raised-shadow: #7f7f7f;
+  --ds-focus-ring: #0a3d9f;
+  --ds-font-ui: "MS Sans Serif", Tahoma, Geneva, sans-serif;
+  --ds-font-mono: "Lucida Console", "Courier New", monospace;
+  --ds-shadow-raised: 3px 3px 0 rgb(16 16 16 / 18%);
+  --ds-window-max-width: 90rem;
+}

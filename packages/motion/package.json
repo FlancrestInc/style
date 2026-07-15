@@ -1,0 +1,9 @@
+{
+  "name": "@flancrest/win31-motion",
+  "version": "0.1.0",
+  "description": "Opt-in motion CSS for the Flancrest Win31 design system.",
+  "files": ["dist"],
+  "exports": {
+    "./motion.css": "./dist/motion.css"
+  }
+}

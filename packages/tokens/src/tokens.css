@@ -1,0 +1,23 @@
+:root {
+  --ds-border-width-control: 1px;
+  --ds-space-100: 0.25rem;
+  --ds-space-200: 0.5rem;
+  --ds-space-300: 0.75rem;
+  --ds-space-400: 1rem;
+  --ds-space-500: 1.5rem;
+  --ds-space-600: 2rem;
+  --ds-space-700: 3rem;
+  --ds-space-800: 4rem;
+  --ds-font-size-body: 1rem;
+  --ds-font-size-caption: 0.8125rem;
+  --ds-font-size-title: clamp(1.25rem, 2vw, 1.75rem);
+  --ds-line-height-body: 1.5;
+  --ds-z-base: 0;
+  --ds-z-dropdown: 400;
+  --ds-z-toast: 700;
+  --ds-z-modal: 800;
+  --ds-motion-duration-fast: 120ms;
+  --ds-motion-duration-standard: 160ms;
+  --ds-motion-duration-window: 180ms;
+  --ds-motion-ease-mechanical: cubic-bezier(0.2, 0.8, 0.2, 1);
+}

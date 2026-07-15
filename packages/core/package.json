@@ -1,0 +1,9 @@
+{
+  "name": "@flancrest/win31-core",
+  "version": "0.1.0",
+  "description": "Framework-neutral core CSS for the Flancrest Win31 design system.",
+  "files": ["dist"],
+  "exports": {
+    "./index.css": "./dist/index.css"
+  }
+}

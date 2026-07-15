@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Win31 Component Catalogue</title>
+    <link rel="stylesheet" href="../packages/core/dist/index.css">
+    <link rel="stylesheet" href="../packages/motion/dist/motion.css">
+    <link rel="stylesheet" href="./demo.css">
+  </head>
+  <body data-ds-theme="win31">
+    <main class="ds-app-shell ds-stack catalogue-shell" tabindex="-1">
+      <header class="ds-window ds-motion-enter-window catalogue-intro">
+        <div class="ds-titlebar">
+          <span aria-hidden="true">■</span>
+          <span>Program Manager — Design System</span>
+        </div>
+        <div class="ds-window__body ds-stack">
+          <p class="catalogue-kicker">@flancrest/win31</p>
+          <h1>Core controls for friendly, focused work.</h1>
+          <p class="catalogue-copy">A Windows-inspired foundation with semantic tokens, tactile controls, and practical responsive behavior.</p>
+          <div class="ds-cluster">
+            <button class="ds-button ds-button--primary" type="button">Open components</button>
+            <a href="#forms">Inspect form states</a>
+          </div>
+        </div>
+      </header>
+
+      <section class="ds-grid" aria-label="Foundation component examples">
+        <section class="ds-window" aria-labelledby="window-title">
+          <div class="ds-titlebar"><span id="window-title">Window and panels</span></div>
+          <div class="ds-window__body ds-stack">
+            <p>Raised framing establishes a major work area; inset framing marks a local workspace.</p>
+            <div class="ds-panel ds-panel--sunken">Selected files are ready for review.</div>
+          </div>
+        </section>
+
+        <section class="ds-window" aria-labelledby="buttons-title">
+          <div class="ds-titlebar"><span id="buttons-title">Buttons</span></div>
+          <div class="ds-window__body ds-cluster">
+            <button class="ds-button ds-button--primary" type="button">Primary action</button>
+            <button class="ds-button" type="button">Secondary action</button>
+            <button class="ds-button ds-button--danger" type="button">Needs attention</button>
+            <button class="ds-button" type="button" disabled>Unavailable</button>
+          </div>
+        </section>
+      </section>
+
+      <section class="ds-window" id="forms" aria-labelledby="forms-title">
+        <div class="ds-titlebar"><span id="forms-title">Form controls</span></div>
+        <div class="ds-window__body ds-grid catalogue-form-grid">
+          <label class="ds-field">Library name
+            <input class="ds-control" value="Saturday Matinee" type="text">
+            <span class="ds-field__hint">A clear, human-readable label.</span>
+          </label>
+          <label class="ds-field">Processing profile
+            <select class="ds-control">
+              <option>Preserve source</option>
+              <option>Compatibility copy</option>
+            </select>
+          </label>
+          <label class="ds-field">Validation note
+            <textarea class="ds-control" aria-invalid="true">A destination is required before continuing.</textarea>
+            <span class="ds-field__error">Choose a destination.</span>
+          </label>
+          <label class="catalogue-check"><input type="checkbox" checked> Preserve original media</label>
+        </div>
+      </section>
+
+      <section class="ds-window" aria-labelledby="table-title">
+        <div class="ds-titlebar"><span id="table-title">Data table</span></div>
+        <div class="ds-window__body ds-stack">
+          <p class="catalogue-copy">The wrapper preserves readable columns instead of shrinking data into illegibility.</p>
+          <div class="ds-table-wrap">
+            <table class="ds-table" data-density="compact">
+              <thead><tr><th scope="col">Item</th><th scope="col">State</th><th scope="col">Owner</th><th scope="col">Updated</th></tr></thead>
+              <tbody>
+                <tr data-state="selected"><td>Feature presentation</td><td>Ready</td><td>Media desk</td><td>Today, 09:41</td></tr>
+                <tr><td>Supplemental interview</td><td>Needs review</td><td>Archive desk</td><td>Yesterday, 16:12</td></tr>
+                <tr><td>Trailer reel</td><td>Queued</td><td>Media desk</td><td>Yesterday, 10:03</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
