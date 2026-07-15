@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" aria-labelledby="title">
+  <title id="title">Application window</title>
+  <path d="M1.5 2.5h13v11h-13zM1.5 5h13" stroke="currentColor" stroke-width="1.5"/>
+  <path d="M3.5 3.75h1M6 3.75h1" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+</svg>

@@ -1,0 +1,25 @@
+import assert from "node:assert/strict";
+import { existsSync, readFileSync } from "node:fs";
+import { join } from "node:path";
+import test from "node:test";
+
+const root = new URL("..", import.meta.url).pathname;
+
+test("declares repeatable package and quality commands", () => {
+  const manifest = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
+
+  for (const script of ["lint:css", "test:visual", "test:a11y", "pack:check"]) {
+    assert.equal(typeof manifest.scripts[script], "string", `missing ${script} script`);
+  }
+  assert.equal(existsSync(join(root, "package-lock.json")), true, "missing npm lockfile");
+  assert.equal(existsSync(join(root, "stylelint.config.mjs")), true, "missing Stylelint config");
+  assert.equal(existsSync(join(root, ".stylelintignore")), true, "missing Stylelint ignore file");
+});
+
+test("documents validation commands before registry publishing", () => {
+  const adoption = readFileSync(join(root, "docs/adoption-guide.md"), "utf8");
+
+  for (const command of ["npm run lint:css", "npm run test:visual", "npm run test:a11y", "npm run pack:check"]) {
+    assert.match(adoption, new RegExp(command.replaceAll(":", "\\:")));
+  }
+});

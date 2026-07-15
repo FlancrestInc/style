@@ -2,6 +2,8 @@
   "name": "@flancrest/win31-tokens",
   "version": "0.1.0",
   "description": "Semantic design tokens for the Flancrest Win31 design system.",
+  "license": "MIT",
+  "repository": "github:FlancrestInc/style",
   "files": ["dist"],
   "exports": {
     "./index.css": "./dist/index.css"

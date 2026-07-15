@@ -2,6 +2,11 @@
   "name": "@flancrest/win31-icons",
   "version": "0.1.0",
   "description": "Original and open-licensed icon assets for the Flancrest Win31 design system.",
+  "license": "MIT",
+  "repository": "github:FlancrestInc/style",
   "files": ["dist", "LICENSES.md"],
-  "exports": {}
+  "exports": {
+    "./app-window.svg": "./dist/app-window.svg",
+    "./checkmark.svg": "./dist/checkmark.svg"
+  }
 }

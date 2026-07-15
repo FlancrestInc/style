@@ -8,6 +8,15 @@
   "scripts": {
     "build": "node scripts/build-css.mjs",
     "test": "node --test tests/*.test.mjs",
-    "check": "npm test && npm run build"
+    "check": "npm test && npm run build",
+    "lint:css": "stylelint \"packages/*/src/**/*.css\" \"demo/**/*.css\"",
+    "test:visual": "playwright test --project=visual-desktop --project=visual-narrow",
+    "test:a11y": "playwright test --project=a11y",
+    "pack:check": "node scripts/pack-check.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
+    "@playwright/test": "^1.61.1",
+    "stylelint": "^17.14.0"
   }
 }

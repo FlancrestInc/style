@@ -60,3 +60,15 @@ Do not override package internals, use unprefixed global variables, or target an
 ## Publishing workflow
 
 Build package CSS, run lint/token/build tests, run demo screenshots and accessibility checks, generate changelog/version metadata, publish a prerelease, validate it in one consumer, then promote the release. Use the same tarball in CI and consumer smoke tests to prevent source-versus-published drift.
+
+Before registry publishing is enabled, validate the local package outputs from the repository root:
+
+```sh
+npm run lint:css
+npm run check
+npm run test:visual
+npm run test:a11y
+npm run pack:check
+```
+
+`pack:check` runs `npm pack --dry-run` for every public package. GitHub Packages publishing remains intentionally deferred until one application has consumed a packed release artifact successfully.

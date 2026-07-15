@@ -104,6 +104,8 @@ Application rules live after the package imports and must be namespaced to the a
 
 Use the `@flancrest/win31-*` npm scope and npm workspaces, with a CSS build step (for example PostCSS with autoprefixer and CSS nesting only if needed). Keep runtime JavaScript at zero for tokens/core/motion. Use `exports` maps to expose CSS entry points, ship source maps, and include only built CSS/SVG/docs in package tarballs. The demo imports package outputs, so it detects broken exports.
 
+Phase 2 adds Stylelint, Playwright visual baselines at desktop and narrow viewports, axe-core checks for serious/critical issues, and `npm pack --dry-run` validation. These are development-only dependencies; package consumers receive CSS and SVG artifacts only.
+
 For Disc Steward development, use a checked-in `file:` dependency to the local packed package, or a deterministic `npm pack` artifact copied into its static assets during the migration. Do not make Python import from an adjacent source checkout at runtime. After the API stabilizes, publish scoped packages to GitHub Packages or npm; use a Git dependency only for short-lived pre-release testing, not normal consumption.
 
 Version with SemVer: patch for fixes and token-value adjustments that preserve contrast/meaning, minor for additive classes/tokens/components, and major for renamed or removed public classes/tokens. Changesets or a simple release manifest are sufficient initially. Pin applications to a compatible major and update deliberately.
