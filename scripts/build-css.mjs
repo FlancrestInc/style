@@ -20,8 +20,8 @@ async function sourceOrEmpty(path) {
 async function bundleCss(path) {
   const source = await sourceOrEmpty(path);
   return source.replace(/@import url\("(.+?)"\);/g, (_match, relativePath) => {
-    const importPath = relativePath.startsWith("@flancrest/win31-")
-      ? join(root, "packages", relativePath.replace("@flancrest/win31-", "").replace("/index.css", ""), "src", "index.css")
+    const importPath = relativePath.startsWith("@flancrestinc/win31-")
+      ? join(root, "packages", relativePath.replace("@flancrestinc/win31-", "").replace("/index.css", ""), "src", "index.css")
       : resolve(dirname(path), relativePath);
     return `/* ${relativePath} */\n__WIN31_IMPORT_${importPath}__`;
   });

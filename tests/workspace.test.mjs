@@ -17,7 +17,7 @@ test("declares the Win31 CSS workspace packages", () => {
     const packagePath = join(root, "packages", name, "package.json");
     assert.equal(existsSync(packagePath), true, `missing ${packagePath}`);
     const packageManifest = JSON.parse(readFileSync(packagePath, "utf8"));
-    assert.equal(packageManifest.name, `@flancrest/win31-${name}`);
+    assert.equal(packageManifest.name, `@flancrestinc/win31-${name}`);
   }
 });
 

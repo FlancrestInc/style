@@ -35,5 +35,10 @@ test("configures every public package for GitHub Packages publishing", () => {
       "https://npm.pkg.github.com",
       `${manifest.name} must publish to GitHub Packages`,
     );
+    assert.equal(
+      manifest.name,
+      `@flancrestinc/win31-${packageName}`,
+      `${packageName} must use the FlancrestInc GitHub Packages scope`,
+    );
   }
 });

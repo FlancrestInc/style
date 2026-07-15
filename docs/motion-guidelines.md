@@ -2,7 +2,7 @@
 
 ## Motion contract
 
-Motion confirms a state change; it never delays ordinary work. Default UI durations should be 100–180 ms, with a practical maximum of 240 ms for a modal/window entrance. Animate `opacity` and `transform`; avoid width, height, top/left, margins, filters, and repeated box-shadow animation on routine interactions. Keyframes live in `@flancrest/win31-motion`; core components remain usable without importing it.
+Motion confirms a state change; it never delays ordinary work. Default UI durations should be 100–180 ms, with a practical maximum of 240 ms for a modal/window entrance. Animate `opacity` and `transform`; avoid width, height, top/left, margins, filters, and repeated box-shadow animation on routine interactions. Keyframes live in `@flancrestinc/win31-motion`; core components remain usable without importing it.
 
 | Context | Treatment | Do not use |
 | --- | --- | --- |

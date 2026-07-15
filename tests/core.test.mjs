@@ -8,7 +8,7 @@ const root = new URL("..", import.meta.url).pathname;
 test("assembles tokens before reset, base, layout, and components", () => {
   const css = readFileSync(join(root, "packages/core/src/index.css"), "utf8");
   const imports = [
-    "@flancrest/win31-tokens/index.css",
+    "@flancrestinc/win31-tokens/index.css",
     "./reset.css",
     "./base.css",
     "./layout.css",

@@ -5,14 +5,14 @@
 After publishing, install the CSS packages with the application's frontend tooling:
 
 ```sh
-npm install @flancrest/win31-core @flancrest/win31-motion
+npm install @flancrestinc/win31-core @flancrestinc/win31-motion
 ```
 
 Import the aggregate core stylesheet, optional motion, then application CSS:
 
 ```css
-@import "@flancrest/win31-core/index.css";
-@import "@flancrest/win31-motion/motion.css";
+@import "@flancrestinc/win31-core/index.css";
+@import "@flancrestinc/win31-motion/motion.css";
 @import "./app-theme.css";
 ```
 
@@ -71,13 +71,13 @@ npm run test:a11y
 npm run pack:check
 ```
 
-`pack:check` runs `npm pack --dry-run` for every public package. Public packages are scoped to `@flancrest` and publish to GitHub Packages. Authenticate npm with a GitHub personal access token that has `write:packages` permission (and `read:packages` for consumer installation), then publish only after the validation commands complete:
+`pack:check` runs `npm pack --dry-run` for every public package. Public packages are scoped to `@flancrestinc` and publish to GitHub Packages. Authenticate npm with a GitHub personal access token that has `write:packages` permission (and `read:packages` for consumer installation), then publish only after the validation commands complete:
 
 ```sh
-npm publish --workspace @flancrest/win31-tokens
-npm publish --workspace @flancrest/win31-core
-npm publish --workspace @flancrest/win31-motion
-npm publish --workspace @flancrest/win31-icons
+npm publish --workspace @flancrestinc/win31-tokens
+npm publish --workspace @flancrestinc/win31-core
+npm publish --workspace @flancrestinc/win31-motion
+npm publish --workspace @flancrestinc/win31-icons
 ```
 
-Consumers install from GitHub Packages with a project or user `.npmrc` containing `@flancrest:registry=https://npm.pkg.github.com`. Keep a package tarball or published version pinned during application validation; do not consume Style source files directly.
+Consumers install from GitHub Packages with a project or user `.npmrc` containing `@flancrestinc:registry=https://npm.pkg.github.com`. Keep a package tarball or published version pinned during application validation; do not consume Style source files directly.

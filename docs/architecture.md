@@ -4,7 +4,7 @@
 
 Turn this repository into a CSS-first, framework-neutral design-system package with an HTML demo/catalogue. The first consumer is Disc Steward's server-rendered Python UI, so the system must not require a JavaScript framework or client-side router. Framework adapters are optional packages added only when a real consumer needs them.
 
-**Resolved implementation decisions (2026-07-14):** use the `@flancrest/win31-*` scope; begin with CSS only and defer React; use local packed/file artifacts during development and move to GitHub Packages after the API stabilizes; make the teal-workspace, neutral-gray-window, cobalt-title-bar treatment the default preset; ship only original or open-licensed assets; and begin implementation with tokens, base/reset, layout primitives, and Window/Button/Form/Table styling before overlay or routing enhancements.
+**Resolved implementation decisions (2026-07-14):** use the `@flancrestinc/win31-*` scope; begin with CSS only and defer React; use local packed/file artifacts during development and move to GitHub Packages after the API stabilizes; make the teal-workspace, neutral-gray-window, cobalt-title-bar treatment the default preset; ship only original or open-licensed assets; and begin implementation with tokens, base/reset, layout primitives, and Window/Button/Form/Table styling before overlay or routing enhancements.
 
 `style` is currently a mixture of three things: a static Windows 3.1-inspired demonstration application (`index.html` plus `styles.css`), a theme specification (`THEME.md`), and a Jellyfin-specific override stylesheet (`jellyfin.css`). It is not yet a publishable package or component library. Disc Steward does not import it; it independently embeds a closely related Windows-inspired token set and component CSS in `disc_steward/web.py`.
 
@@ -16,25 +16,25 @@ Use a small npm workspace, with CSS as the primary public artifact:
 style/
   package.json                 # private workspace root; scripts and shared dev tools
   packages/
-    tokens/                    # @flancrest/win31-tokens
+    tokens/                    # @flancrestinc/win31-tokens
       src/tokens.css           # semantic custom properties and theme contracts
       src/themes/default.css   # default Windows-inspired light theme
       src/themes/*.css         # optional named theme presets
-    core/                      # @flancrest/win31-core
+    core/                      # @flancrestinc/win31-core
       src/reset.css
       src/base.css             # element defaults, type, accessibility utilities
       src/layout.css           # stack, cluster, grid, shell/workspace helpers
       src/components.css       # stable CSS component classes
       src/index.css            # documented aggregate entry point
-    motion/                    # @flancrest/win31-motion
+    motion/                    # @flancrestinc/win31-motion
       src/motion.css           # keyframes, motion classes, reduced-motion policy
-    icons/                     # @flancrest/win31-icons
+    icons/                     # @flancrestinc/win31-icons
       src/*.svg                # authored/open-license SVGs and licence metadata
       index.js                 # optional icon-name map, no framework dependency
   demo/                        # static catalogue; consumes published package entry points
   docs/                        # architecture, principles, inventory, adoption documentation
   adapters/                    # not created until justified
-    react/                     # future: @flancrest/win31-react
+    react/                     # future: @flancrestinc/win31-react
 ```
 
 Do not start with a separate `components` package. CSS components and their tokens are closely coupled, and Disc Steward needs a single linked stylesheet. Split `core/components.css` into `packages/components` only if independent versioning, a non-CSS implementation, or a second framework makes that boundary useful.
@@ -43,10 +43,10 @@ Do not start with a separate `components` package. CSS components and their toke
 
 | Package | Responsibility | Stable exports |
 | --- | --- | --- |
-| `@flancrest/win31-tokens` | Semantic token contract and theme values | `tokens.css`, `themes/default.css`; optional JSON token export later |
-| `@flancrest/win31-core` | Reset, base type, utilities, layout primitives, component classes | `reset.css`, `base.css`, `layout.css`, `components.css`, `index.css` |
-| `@flancrest/win31-motion` | Motion variables, keyframes, and opt-in state classes | `motion.css` |
-| `@flancrest/win31-icons` | Own/openly licensed SVG assets and metadata | direct SVG paths; optional JS name map |
+| `@flancrestinc/win31-tokens` | Semantic token contract and theme values | `tokens.css`, `themes/default.css`; optional JSON token export later |
+| `@flancrestinc/win31-core` | Reset, base type, utilities, layout primitives, component classes | `reset.css`, `base.css`, `layout.css`, `components.css`, `index.css` |
+| `@flancrestinc/win31-motion` | Motion variables, keyframes, and opt-in state classes | `motion.css` |
+| `@flancrestinc/win31-icons` | Own/openly licensed SVG assets and metadata | direct SVG paths; optional JS name map |
 | future adapters | Framework ergonomics only; no visual source of truth | named components/hooks that render core classes and accessible behavior |
 
 The CSS public API is semantic custom properties and prefixed component classes, for example `--ds-surface-window`, `--ds-border-raised-highlight`, `.ds-window`, `.ds-button`, `.ds-stack`, and `.ds-motion-enter-window`. No consumer should depend on selectors based on another application's DOM.
@@ -102,7 +102,7 @@ Application rules live after the package imports and must be namespaced to the a
 
 ## Dependency, build, and release strategy
 
-Use the `@flancrest/win31-*` npm scope and npm workspaces, with a CSS build step (for example PostCSS with autoprefixer and CSS nesting only if needed). Keep runtime JavaScript at zero for tokens/core/motion. Use `exports` maps to expose CSS entry points, ship source maps, and include only built CSS/SVG/docs in package tarballs. The demo imports package outputs, so it detects broken exports.
+Use the `@flancrestinc/win31-*` npm scope and npm workspaces, with a CSS build step (for example PostCSS with autoprefixer and CSS nesting only if needed). Keep runtime JavaScript at zero for tokens/core/motion. Use `exports` maps to expose CSS entry points, ship source maps, and include only built CSS/SVG/docs in package tarballs. The demo imports package outputs, so it detects broken exports.
 
 Phase 2 adds Stylelint, Playwright visual baselines at desktop and narrow viewports, axe-core checks for serious/critical issues, and `npm pack --dry-run` validation. These are development-only dependencies; package consumers receive CSS and SVG artifacts only.
 

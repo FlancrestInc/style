@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED: Use superpowers:subagent-driven-development (if subagents available) or superpowers:executing-plans to implement this plan. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Create a CSS-first `@flancrest/win31-*` workspace with semantic tokens, base/layout/core component styles, motion primitives, and a demo consuming its public CSS entry points.
+**Goal:** Create a CSS-first `@flancrestinc/win31-*` workspace with semantic tokens, base/layout/core component styles, motion primitives, and a demo consuming its public CSS entry points.
 
 **Architecture:** The source of truth is small framework-neutral CSS packages. A dependency-free Node build script assembles their documented CSS exports into `dist/` for static consumers and verifies package output without introducing a runtime JavaScript dependency. The existing demo becomes a catalogue consumer; its previous standalone stylesheet remains in place until the new foundation verifies cleanly.
 
