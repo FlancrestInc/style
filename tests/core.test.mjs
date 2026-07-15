@@ -33,3 +33,11 @@ test("provides accessible base styles and layout primitives", () => {
     assert.match(layout, new RegExp(`\\${className}`));
   }
 });
+
+test("provides semantic status and empty-state primitives", () => {
+  const components = readFileSync(join(root, "packages/core/src/components.css"), "utf8");
+
+  for (const className of [".ds-status", ".ds-status--error", ".ds-empty-state"]) {
+    assert.match(components, new RegExp(`\\${className}`));
+  }
+});
