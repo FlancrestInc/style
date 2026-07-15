@@ -47,11 +47,16 @@
   animation: ds-overlay-enter var(--ds-motion-duration-fast) var(--ds-motion-ease-mechanical) both;
 }
 
+.ds-motion-disclosure[open] > :not(summary) {
+  animation: ds-overlay-enter var(--ds-motion-duration-fast) var(--ds-motion-ease-mechanical) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ds-motion-enter-window,
   .ds-motion-exit-window,
   .ds-motion-enter-menu,
-  .ds-motion-enter-toast {
+  .ds-motion-enter-toast,
+  .ds-motion-disclosure[open] > :not(summary) {
     animation: none;
   }
 }
