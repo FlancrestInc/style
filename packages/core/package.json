@@ -4,6 +4,9 @@
   "description": "Framework-neutral core CSS for the Flancrest Win31 design system.",
   "license": "MIT",
   "repository": "github:FlancrestInc/style",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "files": ["dist"],
   "exports": {
     "./index.css": "./dist/index.css"

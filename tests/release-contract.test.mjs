@@ -23,3 +23,17 @@ test("documents validation commands before registry publishing", () => {
     assert.match(adoption, new RegExp(command.replaceAll(":", "\\:")));
   }
 });
+
+test("configures every public package for GitHub Packages publishing", () => {
+  for (const packageName of ["core", "icons", "motion", "tokens"]) {
+    const manifest = JSON.parse(
+      readFileSync(join(root, "packages", packageName, "package.json"), "utf8"),
+    );
+
+    assert.equal(
+      manifest.publishConfig?.registry,
+      "https://npm.pkg.github.com",
+      `${manifest.name} must publish to GitHub Packages`,
+    );
+  }
+});

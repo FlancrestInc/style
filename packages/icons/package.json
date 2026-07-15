@@ -4,6 +4,9 @@
   "description": "Original and open-licensed icon assets for the Flancrest Win31 design system.",
   "license": "MIT",
   "repository": "github:FlancrestInc/style",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "files": ["dist", "LICENSES.md"],
   "exports": {
     "./app-window.svg": "./dist/app-window.svg",
